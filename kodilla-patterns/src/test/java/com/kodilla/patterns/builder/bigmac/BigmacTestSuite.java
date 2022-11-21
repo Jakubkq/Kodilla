@@ -1,7 +1,9 @@
 package com.kodilla.patterns.builder.bigmac;
 
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BigmacTestSuite {
     @Test
@@ -20,7 +22,7 @@ public class BigmacTestSuite {
         int numOfIngredients=bigmac.getIngredients().size();
 
         //Then
-        Assert.assertEquals(2, numOfIngredients);
+        assertEquals(2, numOfIngredients);
 
 
     }

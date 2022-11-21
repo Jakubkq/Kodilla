@@ -4,5 +4,6 @@ include 'kodilla-good-patterns'
 include 'kodilla-spring-introo'
 include 'kodilla-spring-web'
 include 'kodilla-patterns'
+include 'kodilla-jdbc'
 
 

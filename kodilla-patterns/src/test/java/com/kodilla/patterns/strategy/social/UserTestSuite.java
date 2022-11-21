@@ -1,7 +1,8 @@
 package com.kodilla.patterns.strategy.social;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UserTestSuite {
     @Test
@@ -20,9 +21,9 @@ public class UserTestSuite {
         System.out.println("UserThree should " + user3ShouldPublish);
 
         //Then
-        Assert.assertEquals("Facebook is my life", user1ShouldPublish);
-        Assert.assertEquals("snap is my life", user2ShouldPublish);
-        Assert.assertEquals("twitter is my live", user3ShouldPublish);
+        assertEquals("Facebook is my life", user1ShouldPublish);
+        assertEquals("snap is my life", user2ShouldPublish);
+        assertEquals("twitter is my live", user3ShouldPublish);
     }
 
     @Test
@@ -38,9 +39,7 @@ public class UserTestSuite {
         System.out.println("UserOne now should " + user1ShouldPublish);
 
         //Then
-        Assert.assertEquals("twitter is my live", user1ShouldPublish);
-
-
+        assertEquals("twitter is my live", user1ShouldPublish);
     }
 }
 

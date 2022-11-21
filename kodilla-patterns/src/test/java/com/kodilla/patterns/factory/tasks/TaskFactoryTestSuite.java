@@ -1,7 +1,8 @@
 package com.kodilla.patterns.factory.tasks;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TaskFactoryTestSuite {
     @Test
@@ -11,9 +12,9 @@ public class TaskFactoryTestSuite {
         //When
         Task shopping = factory.makeTask(TaskFactory.SHOPPING);
         //Then
-        Assert.assertFalse(shopping.isTaskExecuted());
-        Assert.assertEquals("Task shopping is executed. You need buy 8.0 onions", shopping.executeTask());
-        Assert.assertTrue(shopping.isTaskExecuted());
+        assertFalse(shopping.isTaskExecuted());
+        assertEquals("Task shopping is executed. You need buy 8.0 onions", shopping.executeTask());
+        assertTrue(shopping.isTaskExecuted());
 
     }
 
@@ -24,9 +25,9 @@ public class TaskFactoryTestSuite {
         //When
         Task painting = factory.makeTask(TaskFactory.PAINTING);
         //Then
-        Assert.assertFalse(painting.isTaskExecuted());
-        Assert.assertEquals("Task painting is executed. You need to paint on white colour garage", painting.executeTask());
-        Assert.assertTrue(painting.isTaskExecuted());
+        assertFalse(painting.isTaskExecuted());
+        assertEquals("Task painting is executed. You need to paint on white colour garage", painting.executeTask());
+        assertTrue(painting.isTaskExecuted());
 
     }
 
@@ -37,9 +38,9 @@ public class TaskFactoryTestSuite {
         //When
         Task driving = factory.makeTask(TaskFactory.DRIVING);
         //Then
-        Assert.assertFalse(driving.isTaskExecuted());
-        Assert.assertEquals("Task driving is executed. You need go by car to Cracov", driving.executeTask());
-        Assert.assertTrue(driving.isTaskExecuted());
+        assertFalse(driving.isTaskExecuted());
+        assertEquals("Task driving is executed. You need go by car to Cracov", driving.executeTask());
+        assertTrue(driving.isTaskExecuted());
 
     }
 
