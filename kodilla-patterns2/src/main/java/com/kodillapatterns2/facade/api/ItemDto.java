@@ -1,6 +1,6 @@
 package com.kodillapatterns2.facade.api;
 
-public final class ItemDto {
+public class ItemDto {
     private final Long productId;
     private final double quantity;
 
