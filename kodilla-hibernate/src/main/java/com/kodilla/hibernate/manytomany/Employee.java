@@ -5,23 +5,51 @@ import com.sun.istack.NotNull;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+@NamedQuery(
+        name = "Employee.findEmployeeByLastName",
+        query = "FROM Employee WHERE lastname = :LASTNAME")
 
+@NamedNativeQuery(
+        name = "Employee.findEmployeeByFirstNameAndAnyString",
+        query = "SELECT * FROM employees WHERE firstname LIKE :ANYSTRING",
+        resultClass = Employee.class
+)
+
+@NamedNativeQuery(
+        name = "Employee.findEmployeeByLastNameAndAnyString",
+        query = "SELECT * FROM employees WHERE lastname LIKE :ANYSTRING",
+        resultClass = Employee.class
+)
 
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
-
     private int id;
     private String firstname;
     private String lastname;
     private List<Company> companies = new ArrayList<>();
-
     public Employee() {
     }
-
     public Employee(String firstname, String lastname) {
         this.firstname = firstname;
         this.lastname = lastname;
+    }
+    @Id
+    @GeneratedValue
+    @NotNull
+    @Column(name = "EMPLOYEE_ID", unique = true)
+    public int getId() {
+        return id;
+    }
+    @NotNull
+    @Column(name = "FIRSTNAME")
+    public String getFirstname() {
+        return firstname;
+    }
+    @NotNull
+    @Column(name = "LASTNAME")
+    public String getLastname() {
+        return lastname;
     }
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
@@ -32,35 +60,12 @@ public class Employee {
     public List<Company> getCompanies() {
         return companies;
     }
-
-    @Id
-    @GeneratedValue
-    @NotNull
-    @Column(name = "EMPLOYEE_ID", unique = true)
-    public int getId() {
-        return id;
-    }
-
-    @NotNull
-    @Column(name = "FIRSTNAME")
-    public String getFirstname() {
-        return firstname;
-    }
-
-    @NotNull
-    @Column(name = "LASTNAME")
-    public String getLastname() {
-        return lastname;
-    }
-
     private void setId(int id) {
         this.id = id;
     }
-
     private void setFirstname(String firstname) {
         this.firstname = firstname;
     }
-
     private void setLastname(String lastname) {
         this.lastname = lastname;
     }
